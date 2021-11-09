@@ -1,0 +1,117 @@
+    /* 
+     * For  reference:
+     *
+     * SinglyLinkedListNode {
+     *     int data;
+     *     SinglyLinkedListNode next;
+     * }
+     *
+     */
+     // Print the Elements of a Linked List
+     
+    static void printLinkedList(SinglyLinkedListNode head) {
+        SinglyLinkedListNode n = head; 
+            while(n!= null){
+                System.out.println(n.data);
+                n=n.next;
+            }
+
+    }
+    
+    //Insert a Node at the Tail of a Linked List
+    static SinglyLinkedListNode insertNodeAtTail(SinglyLinkedListNode head, int data) {
+            SinglyLinkedListNode new_node = new SinglyLinkedListNode(data);
+            
+            if(head == null){
+                head = new_node;
+                return head;
+            }
+            
+            SinglyLinkedListNode temp = head;
+                
+                    while(temp.next != null )
+                            temp = temp.next;
+                    temp.next = new_node;
+        return head;
+    }
+    
+    //Insert a node at the head of a linked list
+    static SinglyLinkedListNode insertNodeAtHead(SinglyLinkedListNode llist, int data) {
+            SinglyLinkedListNode new_node = new SinglyLinkedListNode(data);
+            
+            new_node.next = llist;
+            llist = new_node;
+
+            
+            return llist;
+    }
+    
+    //Insert a node at a specific position in a linked list
+ public static SinglyLinkedListNode insertNodeAtPosition(SinglyLinkedListNode llist, int data, int position) {
+         SinglyLinkedListNode new_node = new SinglyLinkedListNode(data);
+         SinglyLinkedListNode temp = llist;
+              while( --position > 0)
+              temp = temp.next;
+              
+               new_node.next = temp.next;
+              temp.next = new_node;
+    
+return llist;
+    }
+    //Delete a Node
+    public static SinglyLinkedListNode deleteNode(SinglyLinkedListNode llist, int position) {
+    // Write your code here
+        SinglyLinkedListNode temp = llist;
+        SinglyLinkedListNode t = llist;
+        SinglyLinkedListNode prev = null;
+        
+                
+             if(position == 0 ){
+                llist = temp.next;
+                return llist;
+            }
+                
+             while( position-- > 0 ){
+                 prev = temp;
+                 temp = temp.next;
+             }
+                     prev.next = temp.next;
+             
+             return llist;
+    }
+    
+    //Print in Reverse
+    public static void reversePrint(SinglyLinkedListNode llist) {
+    // Write your code here
+    SinglyLinkedListNode head = llist;
+ 
+   for( int  i = l.size()-1; i >=0; i--)
+            System.out.println(l.get(i));*/
+            if(head == null)
+            return;
+            reversePrint(head.next);
+    System.out.println(head.data);
+    return;
+}
+
+//Reverse a linked list
+    public static SinglyLinkedListNode reverse(SinglyLinkedListNode llist) {
+    // Write your code here
+          SinglyLinkedListNode prev = null;
+          SinglyLinkedListNode temp = null;
+          SinglyLinkedListNode head = llist;
+                
+                if( head == null){
+                    return llist;
+                }
+                while( head != null){
+                    temp = head.next;
+                    head.next = prev;
+                    prev = head;
+                    System.out.print(" "+prev.data);
+                    head = temp;
+                }
+            return prev;
+    }
+
+
