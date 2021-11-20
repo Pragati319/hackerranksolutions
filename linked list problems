@@ -113,5 +113,25 @@ return llist;
                 }
             return prev;
     }
+ //Delete duplicate-value nodes from a sorted linked list
+ 
+ public static SinglyLinkedListNode removeDuplicates(SinglyLinkedListNode llist) {
+    SinglyLinkedListNode temp = llist, prev = null;
+    if(llist.next == null)
+    return llist;
+    
+      while(temp.next!= null){
+          prev = temp;
+          temp = temp.next;
+          if(prev.data== temp.data ){
+                prev.next = temp.next;
+                temp = llist;// will go to starting as many times it encounters duplicate values;
+          }
+      }
+    
+    return llist;
+
+    }
+
 
 
