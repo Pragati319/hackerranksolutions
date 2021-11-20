@@ -50,11 +50,11 @@
  public static SinglyLinkedListNode insertNodeAtPosition(SinglyLinkedListNode llist, int data, int position) {
          SinglyLinkedListNode new_node = new SinglyLinkedListNode(data);
          SinglyLinkedListNode temp = llist;
-              while( --position > 0)
-              temp = temp.next;
-              
-               new_node.next = temp.next;
-              temp.next = new_node;
+             while(--position>0 && temp!= null)
+                temp = temp.next; // this will get the temp to the position where we have to insert the new node;
+                
+                    new_node.next = temp.next; // here, we r adding the address of the nodes that are present after the position of new node; 
+                temp.next = new_node;          // here, we r adding the new node at specified position; basically adding it's address to the temp.next;   
     
 return llist;
     }
