@@ -132,6 +132,21 @@ return llist;
     return llist;
 
     }
-
+//Cycle detection Using TWO pointers  (can also be solved using hash sets)
+static boolean hasCycle(SinglyLinkedListNode head) {
+        SinglyLinkedListNode temp = head, copy = head.next;
+        
+        if (head==null)//return false if list is empty;
+        return false;
+         
+        while (temp != copy){       // return true when the while condition is false
+               if(copy == null || copy.next == null) // false when end of list has reached , means no cycle found in the list ;
+               return false;
+               copy=copy.next.next;
+            temp = temp.next;
+        }
+        return true;            
+        
+    }
 
 
