@@ -41,3 +41,24 @@ public class Main
 
 	}
 }
+
+// Using collections
+public class Main
+{
+	public static void main(String[] args) {
+		System.out.println("STACK USING collections hierarchy ");
+		Stack stack = new Stack<>();
+		
+		//Adding elements to Stack
+		
+		stack.push(10);
+		stack.push(90);
+		stack.push("PUSH POP");
+		stack.push(8);
+		stack.pop();
+		System.out.println(stack.peek());
+		System.out.println(stack.size());
+		System.out.println("At position :"+stack.search(90));
+
+	}
+}
