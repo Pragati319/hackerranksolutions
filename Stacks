@@ -1,0 +1,43 @@
+// STACKS-----------------------------------------
+
+import java.util.*;
+import java.io.*;
+
+class stack{
+    List<Integer> list = new ArrayList<>();
+    
+    void push(int x){
+        list.add(x);
+    }
+    int pop(){
+      int rem =  list.remove(list.size()-1);
+        return rem;
+    }
+    int peek(){
+        return list.get(list.size()-1);
+    }
+    int Size(){
+        return list.size();
+    }
+    List<Integer> display(){// not one of the  basic stack operations 
+     return list;
+    }
+    
+}
+public class Main
+{
+	public static void main(String[] args) {
+		System.out.println("Basic Stack implementation using List ");
+		stack st = new stack();
+		st.push(3);
+		st.push(5);
+		st.push(8);
+		st.push(4);
+		System.out.println("Popped item "+st.pop());
+        st.peek();
+		System.out.println(()"stack size "+st.Size);
+		System.out.println("Stack Status "+st.display());
+
+
+	}
+}
