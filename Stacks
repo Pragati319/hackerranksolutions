@@ -62,3 +62,44 @@ public class Main
 
 	}
 }
+
+//Balanced parenthesis  Problem 
+import java.util.*;
+public class Main
+{
+    public static boolean checkpair(char val1, char val2){
+        return ((val1 =='(' && val2 == ')')||(val1 =='{' && val2 == '}')||(val1 =='[' && val2 == ']'));
+    }
+    public static boolean checkBalanced(String exp){
+        Deque<Character> stack = new ArrayDeque<>();
+        
+        for(int i = 0; i< exp.length(); i++){
+            
+        if(exp.charAt(i) =='('|| exp.charAt(i)=='{'|| exp.charAt(i)=='[' ){
+            stack.push(exp.charAt(i));
+        }
+        else {
+            //char c1 = stack.peek();
+            if(stack.isEmpty() )
+            return false;
+            else if (checkpair(stack.peek(),exp.charAt(i)) ){
+                stack.pop();
+                continue;
+            }
+            return false;
+        }
+            
+        }
+        return true;
+    }
+     
+	public static void main(String[] args) {
+		System.out.println("Hello World");
+		
+		String expr = "{{" ;
+		String result;
+		
+		System.out.println(result = checkBalanced(expr) ? "Balanced" : "Not Balanced");
+		
+	}
+}
