@@ -103,3 +103,58 @@ public class Main
 		
 	}
 }
+// balanced parenthisis problem  to handle every case hackerrank solution
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    
+  
+    public static void main(String[] args) {
+      
+
+        Scanner scan  = new Scanner(System.in);
+        while(scan.hasNext()){
+        String exp = scan.next();
+         System.out.println(balanceCheck(exp));
+          // System.out.println(balanceCheck("{}]"));
+
+         }
+        
+
+        
+    }
+    static boolean paircheck(char val1 , char val2){
+      if( (val1 == '(' && val2 == ')' ) || (val1=='['&& val2==']') || (val1=='{'&&val2=='}') )
+      return true;
+      else
+       return false;
+        }
+        
+         static boolean balanceCheck(String expr){
+                Stack<Character> stack = new Stack<>();
+
+            for(int i = 0; i<expr.length(); i++){
+        if(expr.charAt(i)=='(' || expr.charAt(i)=='{' || expr.charAt(i)=='[' ){
+        stack.push(expr.charAt(i));}
+        
+        else{
+            if(stack.empty()){
+            return false;}
+            else if (paircheck(stack.peek(),expr.charAt(i))){ 
+            stack.pop();
+            continue;
+            }
+             
+            return false;
+            
+        }
+            }
+            if(stack.empty())
+            return true;
+            else 
+            return false;
+        }
+        
+}
+
